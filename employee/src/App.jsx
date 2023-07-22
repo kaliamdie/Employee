@@ -1,12 +1,13 @@
-import "./index.css";
-import { useState } from "react";
-import HomePage from "./pages/HomePage";
+
+import React from 'react';
 import { data } from "./data";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import EmployeePage from "./components/EmployeePage";
-import {Routes,Route, useParams} from "react-router-dom"
+
 export default function App() {
-  let [employees, setEmployees] = useState(data);
-  
+  let [employees, setEmployees] = React.useState(data);
+
   function addEmployee(emp) {
     setEmployees([...employees, emp]);
   }
@@ -14,14 +15,13 @@ export default function App() {
   return (
     <div>
       <Routes>
-       
-       <Route path="/" element={ <HomePage employees={employees} addEmployee={addEmployee} />}/>
-       <Route path="/:employee" element={<EmployeePage employees={employees} />} />
-
+        <Route
+          path="/"
+          element={<HomePage employees={employees} addEmployee={addEmployee} />}
+        />
+        <Route path="/:id" element={<EmployeePage employees={employees} />} />
       </Routes>
-   
-      
     </div>
-    
   );
 }
+

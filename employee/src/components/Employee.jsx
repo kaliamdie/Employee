@@ -1,6 +1,12 @@
+import { Link } from "react-router-dom";
+
+
 function Employee({ employee }) {
+
     return (
+   
       <div
+    
         className="emp"
         style={{ border: `1px solid ${employee.borderColor}` }}
       >
